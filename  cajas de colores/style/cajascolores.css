@@ -1,0 +1,257 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* style */
+body {
+  font-family: 'Quicksand', sans-serif; }
+
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .nav__logo {
+    width: 80px;
+    display: block;
+    padding: 12px; }
+    .nav__logo__img {
+      width: 100%; }
+      .nav__logo__img:hover {
+        transform: rotate(380deg);
+        transition: 3s; }
+  .nav__links {
+    padding: 10px; }
+    .nav__links__menu {
+      font-size: 12px;
+      border: 2px solid #EA698F;
+      border-radius: 4px;
+      padding: 12px;
+      text-decoration: none;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 500;
+      color: #EA698F;
+      display: block;
+      opacity: 0;
+      position: absolute;
+      display: none; }
+    .nav__links__wrap__link {
+      color: #48A0E6;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 8px;
+      font-size: 12px; }
+      .nav__links__wrap__link:hover {
+        color: #EA698F; }
+
+.wrapper {
+  max-width: 100%;
+  display: grid;
+  grid-template: repeat(2, auto)/repeat(2, auto);
+  grid-template-areas: "caja1 caja2" "caja1 caja3"; }
+  .wrapper .btn {
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    color: #EA698F;
+    display: block; }
+    .wrapper .btn:hover {
+      color: #48A0E6; }
+
+.yellow {
+  background-color: #FCEEA8;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-area: caja1; }
+  .yellow__image {
+    max-width: 400px;
+    margin: 60px auto 30px;
+    padding: 18px; }
+    .yellow__image__img {
+      width: 100%; }
+  .yellow__cont {
+    max-width: 500px;
+    margin: 0 auto 60px;
+    text-align: center; }
+    .yellow__cont__title {
+      /*  un mixin title */
+      color: #48A0E6;
+      font-size: 30px;
+      font-weight: 500;
+      padding: 12px;
+      position: relative; }
+      .yellow__cont__title::before {
+        /* pseudoelemento guion debajo del título */
+        content: "_";
+        position: absolute;
+        bottom: 0;
+        left: 48%; }
+    .yellow__cont__text {
+      font-size: 12px;
+      margin: 20px auto; }
+
+.small {
+  background-color: #B1E0FC;
+  width: 100%;
+  grid-area: caja2;
+  /* small caja3 */
+  /* para elegir el tercer elemento de la misma categoria en este caso una section y darle estilos */ }
+  .small:nth-child(3) {
+    width: 100%;
+    grid-area: caja3;
+    background-color: #f8d4e9; }
+  .small__image {
+    max-width: 200px;
+    margin: 90px auto 30px; }
+    .small__image__img {
+      width: 100%; }
+  .small__cont {
+    max-width: 226px;
+    margin: 0 auto 80px;
+    text-align: center; }
+    .small__cont__title {
+      color: white;
+      font-size: 20px;
+      font-weight: 500;
+      padding: 12px;
+      position: relative; }
+      .small__cont__title::before {
+        /* pseudoelemento guion debajo del título */
+        content: "_";
+        position: absolute;
+        bottom: 0;
+        left: 48%; }
+    .small__cont__text {
+      font-size: 12px;
+      margin: 20px auto; }
+
+.footer {
+  max-width: 1200px;
+  margin: 0 auto; }
+  .footer .foot-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+  .footer .logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+  .footer__logo {
+    width: 80px;
+    display: block;
+    padding: 12px;
+    margin-left: 8px; }
+    .footer__logo__img {
+      width: 100%; }
+  .footer__copy {
+    font-size: 12px;
+    text-decoration: none;
+    margin: 12px; }
+
+@media all and (max-width: 800px) {
+  .nav {
+    background-color: #FCEEA8; }
+    .nav__links {
+      position: relative;
+      text-align: center; }
+      .nav__links:hover .nav__links__wrap {
+        opacity: 1;
+        transition: 1s all; }
+      .nav__links__menu {
+        opacity: 1;
+        position: relative;
+        right: 16px;
+        cursor: default;
+        display: block; }
+      .nav__links__wrap {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: -9px;
+        opacity: 0; }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+
+  .footer .politic-wrap {
+    display: flex;
+    flex-direction: column; }
+  .footer__copy {
+    margin: 2px 16px;
+    text-align: center; }
+
+  /*     .wrapper{
+          max-width: 100%;
+          align-items: center;
+  
+          
+          display: grid; 
+          grid-template: repeat(1, auto) / repeat(3,auto);
+          grid-template-areas: 
+          "caja1"
+          "caja2"
+          "caja3"
+          ;
+  
+          .caja1{
+              grid-area: caja1;
+          }
+          .caja2{
+              grid-area: caja2;
+          }
+          .caja3{
+              grid-area: caja3;
+          }
+      } */ }
+
+/*# sourceMappingURL=cajascolores.css.map */

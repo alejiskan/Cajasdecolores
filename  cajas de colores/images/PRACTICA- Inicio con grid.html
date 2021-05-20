@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio con Grid</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap" rel="stylesheet">
+
+    <style>
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+            box-sizing: border-box;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        /**/
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            -webkit-font-smoothing: antialiased;
+	        -moz-osx-font-smoothing: grayscale;
+        }
+
+
+        /*Menú*/
+
+        .menu {
+            padding: 12px 40px;
+        }
+        .menu-wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+        .menu img {
+            max-width: 70px;
+        }
+        .links {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .link {
+            font-weight: bold;
+            margin-left: 12px;
+            transition: all 0.3s;
+        }
+        .link:hover {
+            color: #FE5D8F
+        }
+
+
+        /* Cajas */
+
+        .block {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            padding: 40px;
+        }
+        .block img {
+            width: 100%;
+        }
+        .text {
+            width: 65%;
+        }
+        .title {
+            color: white;
+            font-weight: bold;
+            font-size: 30px;
+            margin: 40px 0 14px 0;
+            line-height: 0.9;
+        }
+        .title::after {
+            content: '';
+            display: block;
+            margin: 14px auto 6px;
+            width: 24px;
+            height: 3px;
+            background-color: white;
+        }
+        .more {
+            display: block;
+            font-weight: bold;
+            color: #FE5D8F;
+            margin-top: 24px;
+        }
+        .more::after {
+            content: '';
+            display: block;
+            height: 2px;
+            background-color: #FE5D8F;
+            margin-top: 3px;
+            opacity: 0;
+            width: 0;
+            overflow: hidden;
+
+            transition: all 0.5s;
+        }
+        .more:hover::after {
+            opacity: 1;
+            width: 100%;
+        }
+       
+
+
+        /* Caja 01*/
+
+        .block01 {
+            background-color: #ffee9e;
+        }
+        .block01 img {
+            max-width: 420px;
+        }
+        h1.title {
+            font-size: 44px;
+            color: #00A1EC;
+        }
+        h1.title::after {
+            background-color: #00A1EC;
+        }
+
+
+        /* Caja 02*/
+
+        .block02 {
+            background-color: #a3e2ff;
+        }
+        .block02 img {
+            max-width: 200px;
+        }
+
+
+        /* Caja 03*/
+
+        .block03 {
+            background-color: #ffd2ea;
+        }
+        .block03 img {
+            max-width: 160px;
+        }
+
+
+        @media all and (min-width: 900px) {
+            .intro {
+                min-height: 100vh;
+                display: grid;
+                grid-template-columns: repeat(3, auto);
+                grid-template-rows: 90px repeat(2, calc(50% - 45px));
+            }
+
+            .menu {
+                grid-column: 1/4;
+            }
+
+            .block01 {
+                background-color: #ffee9e;
+                grid-column: 1/span 2;
+                grid-row: 2/span 2;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <section class="intro">
+        <nav class="menu">
+            <div class="menu-wrapper">
+                <a href="#" class="logo"><img src="images/intro-grid/graphics-logo.png" alt="logo"></a>
+                <div class="links">
+                    <a href="#" class="link">Products</a>
+                    <a href="#" class="link">About</a>
+                    <a href="#" class="link">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <section class="block block01">
+            <img src="images/intro-grid/graphics01.png" alt="Gráfico del bloque 01">
+            <div class="text">
+                <h1 class="title">Un título super impactante</h1>
+                <p>Lorem ipsum dolor sit amet elit. Odio impedit distinctio dolore illo excepturi minima maxime minus quisquam, aliquam animi ipsum.</p>
+            </div>
+            <a href="#" class="more">Saber más</a>
+        </section>
+
+        <section class="block block02">
+            <img src="images/intro-grid/graphics02.png" alt="Gráfico del bloque 02">
+            <div class="text">
+                <h3 class="title">El título de este bloque tampoco está mal</h3>
+                <p>Excepturi minima maxime minus quisquam. Odio maxime minus quisquam, aliquam animi ipsum.</p>
+            </div>
+            <a href="#" class="more">Saber más</a>
+        </section>
+
+        <section class="block block03">
+            <img src="images/intro-grid/graphics03.png" alt="Gráfico del bloque 03">
+            <div class="text">
+                <h3 class="title">Este título también tiene su atractivo</h3>
+                <p>Miau adipisicing elit. Illo excepturi minima maxime minus quisquam, aliquam animi ipsum.</p>  
+            </div>
+            <a href="#" class="more">Saber más</a>  
+        </section>
+    </section>
+    
+</body>
+</html>

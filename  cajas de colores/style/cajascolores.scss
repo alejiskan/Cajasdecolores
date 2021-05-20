@@ -1,0 +1,352 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    box-sizing: border-box; 
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* style */
+
+//font-family: 'Quicksand', sans-serif;
+
+//mixins
+@mixin button {
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    color: #EA698F;
+
+    display: block;
+}
+
+@mixin title {
+    
+    font-weight: 500;
+    padding: 12px;
+    position: relative;
+
+    &::before{ /* pseudoelemento guion debajo del título */
+    content: "_";
+    position: absolute;
+    bottom: 0;
+    left: 48%;               
+            }   
+}
+
+body{
+    font-family: 'Quicksand', sans-serif;
+    
+}
+
+.nav{
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+   
+    
+    &__logo{
+        width: 80px;
+        display: block;
+        padding: 12px;
+
+        &__img{
+            width: 100%;
+
+            &:hover{
+                transform: rotate(380deg);
+                transition: 3s;
+            }
+        }
+    }
+
+    &__links{
+        padding: 10px;
+
+        &__menu{
+            font-size: 12px;
+            border: 2px solid #EA698F;
+            border-radius: 4px;
+            padding: 12px;
+
+            @include button;
+
+            opacity: 0;
+            position: absolute;
+            display: none;
+        }
+        
+        &__wrap{
+            &__link{
+                color: #48A0E6;
+                text-decoration: none;
+                font-weight: bold;
+                margin: 8px; 
+                font-size: 12px;
+
+                &:hover{
+                    color: #EA698F;
+                }
+                
+            }
+        }
+        
+    }
+}
+
+.wrapper{
+    max-width: 100%;
+    
+    display: grid; 
+    grid-template: repeat(2, auto) / repeat(2,auto);
+    grid-template-areas: 
+    "caja1 caja2"
+    "caja1 caja3"
+    ;
+
+    .btn{
+        @include button;
+
+        &:hover{
+            color: #48A0E6;
+        }
+    }
+}
+
+.yellow{
+    background-color: #FCEEA8;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    grid-area: caja1;
+    
+    &__image{
+        max-width: 400px;
+        margin: 60px auto 30px;
+        padding: 18px;
+
+        &__img{
+            width: 100%;
+        }
+    }
+    &__cont{
+        max-width: 500px;
+        margin: 0 auto 60px;
+        text-align: center;
+
+        &__title{ /*  un mixin title */
+            color: #48A0E6;
+            font-size: 30px;
+            @include title;   
+        } 
+
+        &__text{
+            font-size: 12px;
+            margin: 20px auto;
+        }
+    }
+}
+
+.small{
+    background-color: #B1E0FC;
+    width: 100%;
+
+    grid-area: caja2;
+
+   /* small caja3 */ 
+   &:nth-child(3){ 
+        width: 100%;
+
+        grid-area: caja3;
+        background-color: #f8d4e9;
+    }/* para elegir el tercer elemento de la misma categoria en este caso una section y darle estilos */
+
+    &__image{
+        max-width: 200px;
+        margin: 90px auto 30px;
+
+        &__img{
+            width: 100%;
+        }
+    }
+
+    &__cont{
+        max-width: 226px;
+        margin: 0 auto 80px;
+        text-align: center;
+
+        &__title{
+            color: white;
+            font-size: 20px;
+            @include title;
+        }
+
+        &__text{
+            font-size: 12px;
+            margin: 20px auto;
+        }
+    } 
+}
+
+.footer{
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .foot-wrap{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .logo-wrap{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__logo{
+        width: 80px;
+        display: block;
+        padding: 12px;
+        margin-left: 8px;
+    
+        &__img{
+            width: 100%;
+        }
+    }
+
+    &__copy{
+        font-size: 12px;
+        text-decoration: none;
+        margin: 12px;
+    }
+
+}
+
+@media all and (max-width:800px){
+    .nav{
+        background-color: #FCEEA8;
+
+        &__links{
+            position: relative;
+            text-align: center;
+
+            &:hover &__wrap {
+                opacity: 1;
+                
+                transition: 1s all;
+                
+
+            }
+            &__menu{
+                opacity: 1;
+                position: relative;
+                right: 16px;
+                cursor: default;
+                display: block;
+            }
+            &__wrap{
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                left: -9px;
+                opacity: 0;
+            }
+        
+        }
+
+    }  
+    
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer{
+        .politic-wrap{
+            display: flex;
+            flex-direction: column; 
+        }
+        &__copy{
+            margin: 2px 16px;
+            text-align: center;
+
+        }
+    }
+
+   
+
+/*     .wrapper{
+        max-width: 100%;
+        align-items: center;
+
+        
+        display: grid; 
+        grid-template: repeat(1, auto) / repeat(3,auto);
+        grid-template-areas: 
+        "caja1"
+        "caja2"
+        "caja3"
+        ;
+
+        .caja1{
+            grid-area: caja1;
+        }
+        .caja2{
+            grid-area: caja2;
+        }
+        .caja3{
+            grid-area: caja3;
+        }
+    } */
+    
+}
